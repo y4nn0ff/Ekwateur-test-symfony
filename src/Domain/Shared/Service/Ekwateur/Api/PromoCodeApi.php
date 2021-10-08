@@ -3,7 +3,7 @@
 namespace App\Domain\Shared\Service\Ekwateur\Api;
 use App\Domain\Shared\Service\Ekwateur\Search\EkwateurQueryBuilderInterface;
 use App\Domain\Shared\Service\Ekwateur\Entity\PromoCode;
-use Symfony\Component\HttpClient\CurlHttpClient;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 /**
 * This API allowes to acces to promo code end point
@@ -13,7 +13,7 @@ class PromoCodeApi implements PromoCodeApiInterface{
     
     const method = "promoCodeList";
     private $clientHttp, $url;
-    public function __construct(CurlHttpClient $clientHttp, string $url) {
+    public function __construct(HttpClientInterface $clientHttp, string $url) {
         $this->clientHttp = $clientHttp;
         $this->url = $url;
     }

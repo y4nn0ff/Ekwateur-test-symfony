@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Domain\Shared\Service\Ekwateur\EkwateurService as EkwateurServiceInterface;
+use App\Domain\Shared\Service\Ekwateur\EkwateurClientInterface;
 use App\Domain\Shared\Service\Ekwateur\Api\OfferApi;
 use App\Domain\Shared\Service\Ekwateur\Api\PromoCodeApi;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -11,12 +12,13 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 **/
 class EkwateurService implements EkwateurServiceInterface{
     
+    /** @var HttpClientInterface $client **/
     private $client;
     public function __construct(HttpClientInterface $client) {
         $this->client  = $client;
     }
     
-    public function getClient(string $ekwateurEndPoint) {
+    public function getClient(string $ekwateurEndPoint) : EkwateurClientInterface {
     
         return new EkwateurClient(
             new OfferApi($this->client ,$ekwateurEndPoint),

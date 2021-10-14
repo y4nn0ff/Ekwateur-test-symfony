@@ -26,6 +26,10 @@ class Error
 
     public function __toString() : string
     {
+        return $this->getError();
+    }
+    
+    public function getError() : string {
         return $this->fieldName.':'.$this->message.':'.$this->code;
     }
 

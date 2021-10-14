@@ -4,11 +4,18 @@
 namespace App\Domain\Shared\Service\Ekwateur\Entity;
 
 class Offer implements OfferInterface {
-    private $offerType,
-    $offerName,
-    $offerDescription,
-    $validPromoCodeList;
+    /** @var string $offerType **/
+    private $offerType;
+    /** @var string $offerName **/
+    private $offerName;
+    /** @var string $offerDescription **/
+    private $offerDescription;
+    /** @var array<PromoCode> $validPromoCodeList **/
+    private $validPromoCodeList;
     
+    /**
+    * @param array<PromoCode> $validPromoCodeList
+    **/
     public function __construct(
         string $offerType,
         string $offerName,
@@ -21,19 +28,22 @@ class Offer implements OfferInterface {
         $this->validPromoCodeList = $validPromoCodeList;
     }
     
-    public function getOfferType() {
+    public function getOfferType() : string {
         return $this->offerType;
     }
     
-    public function getOfferName() {
+    public function getOfferName() : string {
         return $this->offerName;
     }
     
-    public function getOfferDescription() {
+    public function getOfferDescription() : string {
         return $this->offerDescription;
     }
     
-    public function getValidPromoCodeList() {
+    /**
+    * @return array<PromoCode>
+    **/
+    public function getValidPromoCodeList() : array {
         return $this->validPromoCodeList;
     }
 }

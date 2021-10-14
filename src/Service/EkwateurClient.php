@@ -2,16 +2,20 @@
 
 namespace App\Service;
 
-use App\Domain\Shared\Service\Ekwateur\EkwateurService as EkwateurServiceInterface;
+use App\Domain\Shared\Service\Ekwateur\EkwateurClientInterface;
 use App\Domain\Shared\Service\Ekwateur\Api\OfferApiInterface;
 use App\Domain\Shared\Service\Ekwateur\Api\PromoCodeApiInterface;
-
+use App\Domain\Shared\Service\Ekwateur\Api\OfferApi;
+use App\Domain\Shared\Service\Ekwateur\Api\PromoCodeApi;
 /**
 * The service allow create APIs object 
 **/
 class EkwateurClient implements EkwateurClientInterface{
     
-    private $offerApi, $promoCodeApi;
+    /** @var OfferApiInterface $offerApi **/
+    private $offerApi;
+    /** @var PromoCodeApiInterface $promoCodeApi **/
+    private $promoCodeApi;
     
     public function __construct(
         OfferApiInterface $offerApi,
@@ -21,11 +25,11 @@ class EkwateurClient implements EkwateurClientInterface{
         $this->promoCodeApi = $promoCodeApi;
     }
     
-    public function getOfferApi() {
+    public function getOfferApi() : OfferApiInterface {
         return $this->offerApi;
     }
     
-    public function getPromoCodeApi() {
+    public function getPromoCodeApi() :PromoCodeApiInterface {
         return $this->promoCodeApi;
     }
 }

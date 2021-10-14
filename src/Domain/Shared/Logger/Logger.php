@@ -5,13 +5,22 @@ namespace App\Domain\Shared\Logger;
 
 
 interface Logger {
-    public function emergency($message, array $context = array());
-    public function alert($message, array $context = array());
-    public function critical($message, array $context = array());
-    public function error($message, array $context = array());
-    public function warning($message, array $context = array());
-    public function notice($message, array $context = array());
-    public function info($message, array $context = array());
-    public function debug($message, array $context = array());
-    public function log($level, $message, array $context = array());
+    /** @param array<string>  $context **/
+    public function emergency(string $message, array $context = array()) : void;
+    /** @param array<string>  $context **/
+    public function alert(string $message, array $context = array()) : void;
+    /** @param array<string>  $context **/
+    public function critical(string $message, array $context = array()) : void;
+    /** @param array<string>  $context **/
+    public function error(string $message, array $context = array()) : void;
+    /** @param array<string>  $context **/
+    public function warning(string $message, array $context = array()) : void;
+    /** @param array<string>  $context **/
+    public function notice(string $message, array $context = array()) : void;
+    /** @param array<string>  $context **/
+    public function info(string $message, array $context = array()) : void;
+    /** @param array<string>  $context **/
+    public function debug(string $message, array $context = array()) : void;
+    /** @param array<string>  $context **/
+    public function log(int $level, string $message, array $context = array()) : void;
 }

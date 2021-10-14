@@ -9,7 +9,10 @@ use App\Domain\Shared\Logger\Logger;
 
 class CheckDiscountCodePresenter implements CheckDiscountCodePresenterInterface{
     
-    private $kernel, $logger;
+    /** @var KernelInterface $kernel **/
+    private $kernel;
+    /** @var Logger $logger **/
+    private $logger;
     public function __construct(KernelInterface $kernel, Logger $logger ) {
         $this->kernel = $kernel;
         $this->logger = $logger;
@@ -20,7 +23,7 @@ class CheckDiscountCodePresenter implements CheckDiscountCodePresenterInterface{
             
             $errors = [];
             foreach($response->notification()->getErrors() as $error) {
-                $this->logger->error($error, ['class' => __CLASS__, 'method' => __METHOD__]);
+                $this->logger->error($error->getError(), ['class' => __CLASS__, 'method' => __METHOD__]);
                 $errors[] = $error;
             }
             return implode("\n", $errors);
@@ -34,7 +37,10 @@ class CheckDiscountCodePresenter implements CheckDiscountCodePresenterInterface{
     }
     
 
-    public function buildJsonFile(CheckDiscountCodeResponse $response) {
+    /** 
+    * @return array<mixed> 
+    **/
+    public function buildJsonFile(CheckDiscountCodeResponse $response) : array {
         $json = [
             'promoCode' => $response->promoCode,
             'endDate' => $response->endDate->format('Y-m-d'),
@@ -50,7 +56,7 @@ class CheckDiscountCodePresenter implements CheckDiscountCodePresenterInterface{
         return $json;
     }
     
-    public function writeJsonFile(CheckDiscountCodeResponse $response) {
+    public function writeJsonFile(CheckDiscountCodeResponse $response) : ?string {
         try {
             $dir = $this->kernel->getProjectDir() . '/promocodes';
             if(!is_dir($dir)) {

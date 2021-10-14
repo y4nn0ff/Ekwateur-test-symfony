@@ -75,7 +75,7 @@ class CheckDiscountCodeTest extends TestCase implements CheckDiscountCodePresent
         return "";
     }
     
-    public function test_it_returns_promocode_not_exists() {
+    public function test_it_returns_promocode_not_exists() : void{
         $this->checkDiscountCode->execute(
             $this->checkDiscountCodeRequest->withPromoCode("TEST"),
             $this->checkDiscountCodeResponse
@@ -88,7 +88,7 @@ class CheckDiscountCodeTest extends TestCase implements CheckDiscountCodePresent
         
     }
     
-    public function test_it_returns_promocode_is_expired() {
+    public function test_it_returns_promocode_is_expired() : void {
         $this->checkDiscountCode->execute(
             $this->checkDiscountCodeRequest->withPromoCode("EKWA_WELCOME"),
             $this->checkDiscountCodeResponse
@@ -101,7 +101,7 @@ class CheckDiscountCodeTest extends TestCase implements CheckDiscountCodePresent
         
     }
     
-    public function test_it_returns_promocode_have_got_offer() {
+    public function test_it_returns_promocode_have_got_offer() : void {
         $this->checkDiscountCode->execute(
             $this->checkDiscountCodeRequest->withPromoCode("ALL_2000"),
             $this->checkDiscountCodeResponse
@@ -112,7 +112,7 @@ class CheckDiscountCodeTest extends TestCase implements CheckDiscountCodePresent
         
     }
     
-    public function test_it_returns_promocode_doesnt_have_offer() {
+    public function test_it_returns_promocode_doesnt_have_offer() : void {
         $this->checkDiscountCode->execute(
             $this->checkDiscountCodeRequest->withPromoCode("WOODY_WOODPECKER"),
             $this->checkDiscountCodeResponse

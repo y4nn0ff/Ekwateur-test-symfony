@@ -12,14 +12,19 @@ class PromoCodeApi implements PromoCodeApiInterface{
     use \App\Domain\Shared\Service\Ekwateur\Api\ListTrait;
     
     const method = "promoCodeList";
-    private $clientHttp, $url;
+    /** @var HttpClientInterface $clientHttp **/
+    private $clientHttp;
+    /** @var string $url **/
+    private $url;
     public function __construct(HttpClientInterface $clientHttp, string $url) {
         $this->clientHttp = $clientHttp;
         $this->url = $url;
     }
 
-    
-    public function hydrateItem($item) {
+    /**
+    * @param array<mixed> $item
+    **/
+    public function hydrateItem($item) : PromoCode{
         return new PromoCode(
             $item['code'],
             $item['discountValue'],

@@ -2,9 +2,14 @@
 
 namespace App\Domain\Shared\Service\Ekwateur\Api;
 use App\Domain\Shared\Service\Ekwateur\Search\EkwateurQueryBuilderInterface;
+use App\Domain\Shared\Service\Ekwateur\Entity\OfferInterface;
+use App\Domain\Shared\Service\Ekwateur\Entity\PromoCodeInterface;
 
 Trait ListTrait {
     
+    /**
+    * @return \Iterator<OfferInterface|PromoCodeInterface> 
+    **/
     public function list(?EkwateurQueryBuilderInterface $query) : \Iterator {
         
         $url = $this->url . self::method . '?' . implode("&",$query->getFilters());

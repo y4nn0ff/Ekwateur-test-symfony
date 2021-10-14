@@ -6,7 +6,7 @@ use Symfony\Contracts\HttpClient\ResponseInterface;
 class HttpResponse implements ResponseInterface {
     
     /**
-    * @var Array $content
+    * @var Array<mixed> $content
     **/
     public $content;
     public function getStatusCode(): int {
@@ -21,6 +21,9 @@ class HttpResponse implements ResponseInterface {
         return json_encode($this->content);
     }
     
+    /**
+    * @return array<mixed>
+    **/
     public function toArray(bool $throw = true) : array {
         return [];
     }
@@ -33,7 +36,10 @@ class HttpResponse implements ResponseInterface {
         
     }
     
-    public function setContent($content) {
+    /**
+    * @param array<mixed> $content
+    **/
+    public function setContent(array $content) : void{
         $this->content = $content;
     }
 }

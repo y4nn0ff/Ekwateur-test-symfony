@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 namespace App\Domain\Offer\UseCase\CheckDiscountCode;
+use App\Domain\Shared\Service\Ekwateur\Entity\OfferInterface;
 
 class CheckDiscountCodeResponse{
     use \App\Domain\Shared\Traits\Response;
@@ -21,7 +22,7 @@ class CheckDiscountCodeResponse{
     public $discountValue;
     
     /**
-    * @var array $offers<string>
+    * @var array<OfferInterface> $offers
     **/
     public $offers;
     public function addPromoCode(string $promoCode) : void{
@@ -36,7 +37,10 @@ class CheckDiscountCodeResponse{
         $this->discountValue = $discountValue;
     }
     
+    /**
+     * @param array<OfferInterface> $offers
+     */
     public function addCompatibleOfferList(array $offers) : void{
-        $this->offers[] = $offers;
+        $this->offers = $offers;
     }
 }

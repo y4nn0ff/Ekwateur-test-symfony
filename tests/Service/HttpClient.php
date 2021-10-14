@@ -5,10 +5,18 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class HttpClient implements HttpClientInterface {
     
+    /** @var array<mixed> $data **/
     private $data;
-    public function __construct($data) {
+
+    /**
+    * @param array<mixed> $data 
+    **/
+    public function __construct(array $data) {
         $this->data = $data;
     }
+    /**
+    * @param array<mixed> $options 
+    **/
     public function request(string $method, string $url, array $options = []) : \Symfony\Contracts\HttpClient\ResponseInterface{
         list($method, $queryParam) = explode("?",$url);
         
@@ -37,7 +45,10 @@ class HttpClient implements HttpClientInterface {
         return $response;
     }
     
-    public function withOptions(array $options) {
+    /**
+    * @param array<mixed> $options 
+    **/
+    public function withOptions(array $options) :void {
         
     }
 }

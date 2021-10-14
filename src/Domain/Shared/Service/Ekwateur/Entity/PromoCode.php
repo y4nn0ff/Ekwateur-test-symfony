@@ -4,9 +4,12 @@
 namespace App\Domain\Shared\Service\Ekwateur\Entity;
 
 class PromoCode implements PromoCodeInterface {
-    private $code,
-    $discountValue,
-    $endDate;
+    /** @var string $code **/
+    private $code;
+    /** @var float $discountValue **/
+    private $discountValue;
+    /** @var \DateTime $endDate **/
+    private $endDate;
     
     public function __construct(
         string $code,
@@ -18,15 +21,15 @@ class PromoCode implements PromoCodeInterface {
         $this->endDate = $endDate;
     }
     
-    public function getCode() {
+    public function getCode() : string {
         return $this->code;
     }
     
-    public function getDiscountValue() {
+    public function getDiscountValue() : float {
         return $this->discountValue;
     }
     
-    public function getEndDate() {
+    public function getEndDate() : \DateTime {
         return $this->endDate;
     }
 }

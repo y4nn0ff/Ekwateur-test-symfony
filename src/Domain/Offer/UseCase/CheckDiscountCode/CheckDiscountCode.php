@@ -3,6 +3,8 @@
 namespace App\Domain\Offer\UseCase\CheckDiscountCode;
 use App\Domain\Shared\Service\Ekwateur\EkwateurService;
 use App\Domain\Shared\Service\Ekwateur\Search\EkwateurQueryBuilder;
+use App\Domain\Shared\Service\Ekwateur\Entity\Offer;
+use App\Domain\Shared\Service\Ekwateur\Entity\PromoCode;
 
 /**
 * This use cas check if promo code is valid.
@@ -24,20 +26,22 @@ class CheckDiscountCode {
         
         $promoCode = null;
         $offers = [];
-        /** @var \Iterator $results  */
-        $results = [];
+        /** @var array<PromoCode> $promoCodesList  */
+        $promoCodesList = [];
+        /** @var array<Offer> $offersList  */
+        $offersList = [];
         $client = $this->ekwateurService->getClient($_ENV['EKWATEUR_END_POINT']);
         //We get promocode from API
         
         $query = new EkwateurQueryBuilder();
         $query->addFilter('code', '=' , $request->promoCode);
         try {
-            $results = $client->getPromoCodeApi()->list($query);
+            $promoCodesList = $client->getPromoCodeApi()->list($query);
         }catch(\Exception | \Error $e) {
             $response->addError("promocode", $e->getMessage() . ' ' . $e->getFile() . ' ' . $e->getLine());
         }
         
-        foreach($results as $result){
+        foreach($promoCodesList as $result){
             $promoCode = $result;
             break;
         }
@@ -55,11 +59,11 @@ class CheckDiscountCode {
                 $query = new EkwateurQueryBuilder();
                 $query->addFilter('validPromoCodeList', '=' , $request->promoCode);
                 try {
-                    $results = $client->getOfferApi()->list($query);
+                    $offersList = $client->getOfferApi()->list($query);
                 }catch(\Exception | \Error $e) {
                     $response->addError("promocode", $e->getMessage() . ' ' . $e->getFile() . ' ' . $e->getLine());
                 }
-                foreach($results as $offer){
+                foreach($offersList as $offer){
                     $offers[] = $offer;
                 }
                 

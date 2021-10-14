@@ -1,10 +1,11 @@
-<?php 
+<?php declare(strict_types=1);
 
 namespace App\Domain\Shared\Service\Ekwateur\Api;
 use App\Domain\Shared\Service\Ekwateur\Search\EkwateurQueryBuilderInterface;
 
 Trait ListTrait {
-    public function list(?EkwateurQueryBuilderInterface $query) {
+    
+    public function list(?EkwateurQueryBuilderInterface $query) : \Iterator {
         
         $url = $this->url . self::method . '?' . implode("&",$query->getFilters());
     

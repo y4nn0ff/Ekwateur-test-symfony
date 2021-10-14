@@ -1,4 +1,4 @@
-<?php 
+<?php declare(strict_types=1);
 
 namespace App\Tests\Domain\Offer\UseCase\CheckDiscountCode;
 
@@ -12,8 +12,24 @@ use App\Tests\Service\HttpClient;
 
 class CheckDiscountCodeTest extends TestCase implements CheckDiscountCodePresenter {
     
+    /**
+    * @var CheckDiscountCode $checkDiscountCode
+    */
+    public $checkDiscountCode;
+    
+    /**
+    * @var CheckDiscountCodeRequest $checkDiscountCodeRequest
+    */
+    public $checkDiscountCodeRequest;
+    
+    /**
+    * @var CheckDiscountCodeResponse $checkDiscountCodeResponse
+    */
+    public $checkDiscountCodeResponse;
+
     protected function setUp() :void
     {
+
         $this->checkDiscountCode = new CheckDiscountCode(
             new EkwateurService(
                 new HttpClient(
@@ -54,8 +70,9 @@ class CheckDiscountCodeTest extends TestCase implements CheckDiscountCodePresent
         $this->checkDiscountCodeRequest = new CheckDiscountCodeRequest();
         $this->checkDiscountCodeResponse = new CheckDiscountCodeResponse();
     }
-    public function present(CheckDiscountCodeResponse $response) {
+    public function present(CheckDiscountCodeResponse $response) : string {
         
+        return "";
     }
     
     public function test_it_returns_promocode_not_exists() {

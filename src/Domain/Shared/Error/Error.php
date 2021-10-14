@@ -4,8 +4,17 @@ namespace App\Domain\Shared\Error;
 
 class Error
 {
+    /**
+    * @var string $fieldName
+    **/
     private $fieldName;
+    /**
+    * @var string $message
+    **/
     private $message;
+    /**
+    * @var int|null $code
+    **/
     private $code;
 
     public function __construct(string $fieldName, string $message, int $code = null)
@@ -15,7 +24,7 @@ class Error
         $this->code = $code;
     }
 
-    public function __toString()
+    public function __toString() : string
     {
         return $this->fieldName.':'.$this->message.':'.$this->code;
     }

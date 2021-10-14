@@ -1,4 +1,4 @@
-<?php 
+<?php declare(strict_types=1);
 
 namespace App\Presentation\Offer;
 
@@ -15,7 +15,7 @@ class CheckDiscountCodePresenter implements CheckDiscountCodePresenterInterface{
         $this->logger = $logger;
     }
     
-    public function present(CheckDiscountCodeResponse $response) {
+    public function present(CheckDiscountCodeResponse $response) : string{
         if($response->notification()->hasError()) {
             
             $errors = [];
@@ -62,7 +62,7 @@ class CheckDiscountCodePresenter implements CheckDiscountCodePresenterInterface{
             return $fileName;
             
         }catch(\Exception | \Error $e) {
-            $this->logger->error($e->getMessage() . ' ' . $e->getFile . ' ' . $e->getLine, ['class' => __CLASS__, 'method' => __METHOD__]);
+            $this->logger->error($e->getMessage() . ' ' . $e->getFile() . ' ' . $e->getLine(), ['class' => __CLASS__, 'method' => __METHOD__]);
             return null;
         }
     }

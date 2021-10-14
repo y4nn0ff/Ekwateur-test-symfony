@@ -1,4 +1,4 @@
-<?php 
+<?php declare(strict_types=1);
 
 namespace App\Tests\Service;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -32,7 +32,9 @@ class HttpClient implements HttpClientInterface {
     }
     
     public function stream($responses, ?float $timeout = NULL) : \Symfony\Contracts\HttpClient\ResponseStreamInterface {
-        
+        $response = new \Symfony\Component\HttpClient\Response\ResponseStream(new \Generator());
+    
+        return $response;
     }
     
     public function withOptions(array $options) {

@@ -1,4 +1,4 @@
-<?php 
+<?php declare(strict_types=1);
 
 namespace App\Domain\Offer\UseCase\CheckDiscountCode;
 use App\Domain\Shared\Service\Ekwateur\EkwateurService;
@@ -11,16 +11,21 @@ use App\Domain\Shared\Service\Ekwateur\Search\EkwateurQueryBuilder;
 **/
 class CheckDiscountCode {
     
+    /**
+     * @var EkwateurService $ekwateurService 
+     */
     private $ekwateurService;
     
     public function __construct(EkwateurService $ekwateurService) {
         $this->ekwateurService = $ekwateurService;
     }
     
-    public function execute(CheckDiscountCodeRequest $request, CheckDiscountCodeResponse $response) {
+    public function execute(CheckDiscountCodeRequest $request, CheckDiscountCodeResponse $response) : void {
         
         $promoCode = null;
         $offers = [];
+        /** @var \Iterator $results  */
+        $results = [];
         $client = $this->ekwateurService->getClient($_ENV['EKWATEUR_END_POINT']);
         //We get promocode from API
         

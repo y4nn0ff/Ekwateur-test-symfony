@@ -1,10 +1,13 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Domain\Shared\Traits;
+
 use App\Domain\Shared\Error\Notification;
 
-Trait Response {
-    
+trait Response
+{
     /** @var Notification $notification **/
     private $notification;
 
@@ -14,7 +17,7 @@ Trait Response {
         $this->notification = new Notification();
     }
 
-    public function addError(string $fieldName, string $error, int $code = null) :void
+    public function addError(string $fieldName, string $error, int $code = null): void
     {
         $this->notification->addError($fieldName, $error, $code);
     }
@@ -23,5 +26,4 @@ Trait Response {
     {
         return $this->notification;
     }
-    
 }

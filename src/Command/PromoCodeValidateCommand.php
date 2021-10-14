@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Command;
 
@@ -19,35 +21,36 @@ class PromoCodeValidateCommand extends Command
 {
     protected static $defaultName = 'promo-code:validate';
     /**
-     * @var CheckDiscountCode $checkdiscountCode 
+     * @var CheckDiscountCode $checkdiscountCode
      */
     private $checkdiscountCode;
-    
+
     /**
-     * @var CheckDiscountCodeRequest $checkdiscountCodeRequest 
+     * @var CheckDiscountCodeRequest $checkdiscountCodeRequest
      */
-    private    $checkdiscountCodeRequest;
-    
+    private $checkdiscountCodeRequest;
+
     /**
-     * @var CheckDiscountCodeResponse $checkdiscountCodeResponse 
+     * @var CheckDiscountCodeResponse $checkdiscountCodeResponse
      */
-    private    $checkdiscountCodeResponse;
-    
+    private $checkdiscountCodeResponse;
+
     /**
-     * @var CheckDiscountCodePresenter $checkdiscountCodePresenter 
+     * @var CheckDiscountCodePresenter $checkdiscountCodePresenter
      */
-    private    $checkdiscountCodePresenter;
+    private $checkdiscountCodePresenter;
     public function __construct(
         CheckDiscountCode $checkdiscountCode,
         CheckDiscountCodeRequest $checkdiscountCodeRequest,
         CheckDiscountCodeResponse $checkdiscountCodeResponse,
-        CheckDiscountCodePresenter $checkdiscountCodePresenter) {
-        
-            parent::__construct();
-            $this->checkdiscountCode = $checkdiscountCode;
-            $this->checkdiscountCodeRequest = $checkdiscountCodeRequest;
-            $this->checkdiscountCodeResponse = $checkdiscountCodeResponse;
-            $this->checkdiscountCodePresenter = $checkdiscountCodePresenter;
+        CheckDiscountCodePresenter $checkdiscountCodePresenter
+    )
+    {
+        parent::__construct();
+        $this->checkdiscountCode = $checkdiscountCode;
+        $this->checkdiscountCodeRequest = $checkdiscountCodeRequest;
+        $this->checkdiscountCodeResponse = $checkdiscountCodeResponse;
+        $this->checkdiscountCodePresenter = $checkdiscountCodePresenter;
     }
 
     protected function configure(): void
@@ -56,14 +59,14 @@ class PromoCodeValidateCommand extends Command
             ->addArgument('promo_code', InputArgument::REQUIRED, 'The code to check')
     ;
     }
-    
+
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->checkdiscountCode->execute(
             $this->checkdiscountCodeRequest->withPromoCode($input->getArgument('promo_code')),
             $this->checkdiscountCodeResponse
         );
-        
+
         $output->writeln($this->checkdiscountCodePresenter->present($this->checkdiscountCodeResponse));
 
         return Command::SUCCESS;

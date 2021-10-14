@@ -1,14 +1,17 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Domain\Shared\Service\Ekwateur\Api;
+
 use App\Domain\Shared\Service\Ekwateur\Search\EkwateurQueryBuilderInterface;
 use App\Domain\Shared\Service\Ekwateur\Entity\OfferInterface;
 use App\Domain\Shared\Service\Ekwateur\Entity\PromoCodeInterface;
 
-interface PromoCodeApiInterface {
+interface PromoCodeApiInterface
+{
     /**
-    * @return \Iterator<PromoCodeInterface> 
+    * @return \Iterator<PromoCodeInterface>
     **/
-    public function list(EkwateurQueryBuilderInterface $query) : \Iterator;    
+    public function list(EkwateurQueryBuilderInterface $query): \Iterator;
 }
-

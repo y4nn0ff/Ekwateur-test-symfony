@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Domain\Shared\Error;
 
@@ -9,7 +11,7 @@ class Notification
     **/
     private $errors = [];
 
-    public function addError(string $fieldName, string $error, int $code = null) : self
+    public function addError(string $fieldName, string $error, int $code = null): self
     {
         $this->errors[] = new Error($fieldName, $error, $code);
 
@@ -24,7 +26,7 @@ class Notification
         return $this->errors;
     }
 
-    public function hasError() : bool
+    public function hasError(): bool
     {
         return count($this->errors) > 0;
     }

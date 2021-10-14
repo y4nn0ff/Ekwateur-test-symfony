@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Domain\Shared\Error;
 
@@ -24,12 +26,13 @@ class Error
         $this->code = $code;
     }
 
-    public function __toString() : string
+    public function __toString(): string
     {
         return $this->getError();
     }
-    
-    public function getError() : string {
+
+    public function getError(): string
+    {
         return $this->fieldName.':'.$this->message.':'.$this->code;
     }
 
@@ -42,7 +45,7 @@ class Error
     {
         return $this->message;
     }
-    
+
     public function getCode(): ?int
     {
         return $this->code;

@@ -2,6 +2,9 @@
 
 It's a project in order to check the promo code validity. 
 
+## Test pass
+[![Symfony](https://github.com/y4nn0ff/ekWateur-test-symfony/actions/workflows/symfony.yml/badge.svg)](https://github.com/y4nn0ff/ekWateur-test-symfony/actions/workflows/symfony.yml)
+
 ## Requirements
 * php >= 7.4
 * composer 

@@ -7,8 +7,8 @@ namespace App\Domain\Shared\Service\Ekwateur\Search;
 class EkwateurQueryBuilder implements EkwateurQueryBuilderInterface
 {
     /**
-    * @var array<string>
-    **/
+     * @var array<string>
+     **/
     private $filters = [];
     public function addFilter(string $attribute, string $operator, string $value): void
     {
@@ -16,8 +16,8 @@ class EkwateurQueryBuilder implements EkwateurQueryBuilderInterface
     }
 
     /**
-    * @return array<string>
-    **/
+     * @return array<string>
+     **/
     public function getFilters(): array
     {
         return $this->filters;

@@ -9,7 +9,9 @@ use App\Domain\Shared\Logger\Logger as DomainLoggerInterface;
 
 class Logger implements DomainLoggerInterface, LoggerInterface
 {
-    /** @var LoggerInterface $logger **/
+    /**
+     * @var LoggerInterface $logger 
+     **/
     private $logger;
     public function __construct(LoggerInterface $logger)
     {

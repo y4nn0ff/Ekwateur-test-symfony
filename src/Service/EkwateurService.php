@@ -11,11 +11,13 @@ use App\Domain\Shared\Service\Ekwateur\Api\PromoCodeApi;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 /**
-** This service use to instanciate APIs
-**/
+ * * This service use to instanciate APIs
+ **/
 class EkwateurService implements EkwateurServiceInterface
 {
-    /** @var HttpClientInterface $client **/
+    /**
+     * @var HttpClientInterface $client 
+     **/
     private $client;
     public function __construct(HttpClientInterface $client)
     {

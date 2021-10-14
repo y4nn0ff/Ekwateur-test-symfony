@@ -7,16 +7,16 @@ namespace App\Domain\Shared\Error;
 class Error
 {
     /**
-    * @var string $fieldName
-    **/
+     * @var string $fieldName
+     **/
     private $fieldName;
     /**
-    * @var string $message
-    **/
+     * @var string $message
+     **/
     private $message;
     /**
-    * @var int|null $code
-    **/
+     * @var int|null $code
+     **/
     private $code;
 
     public function __construct(string $fieldName, string $message, int $code = null)

@@ -11,13 +11,17 @@ use App\Domain\Shared\Service\Ekwateur\Api\OfferApi;
 use App\Domain\Shared\Service\Ekwateur\Api\PromoCodeApi;
 
 /**
-* The service allow create APIs object
-**/
+ * The service allow create APIs object
+ **/
 class EkwateurClient implements EkwateurClientInterface
 {
-    /** @var OfferApiInterface $offerApi **/
+    /**
+     * @var OfferApiInterface $offerApi 
+     **/
     private $offerApi;
-    /** @var PromoCodeApiInterface $promoCodeApi **/
+    /**
+     * @var PromoCodeApiInterface $promoCodeApi 
+     **/
     private $promoCodeApi;
 
     public function __construct(

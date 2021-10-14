@@ -7,8 +7,8 @@ namespace App\Domain\Offer\UseCase\CheckDiscountCode;
 class CheckDiscountCodeRequest
 {
     /**
-    * @var string
-    **/
+     * @var string
+     **/
     public $promoCode;
     public function withPromoCode(string $promoCode): self
     {

@@ -11,23 +11,23 @@ class CheckDiscountCodeResponse
     use \App\Domain\Shared\Traits\Response;
 
     /**
-    * @var string $promoCode
-    **/
+     * @var string $promoCode
+     **/
     public $promoCode;
 
     /**
-    * @var \DateTime $endDate
-    **/
+     * @var \DateTime $endDate
+     **/
     public $endDate;
 
     /**
-    * @var float $discountValue
-    **/
+     * @var float $discountValue
+     **/
     public $discountValue;
 
     /**
-    * @var array<OfferInterface> $offers
-    **/
+     * @var array<OfferInterface> $offers
+     **/
     public $offers;
     public function addPromoCode(string $promoCode): void
     {

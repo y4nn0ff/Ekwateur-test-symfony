@@ -8,7 +8,9 @@ use App\Domain\Shared\Error\Notification;
 
 trait Response
 {
-    /** @var Notification $notification **/
+    /**
+     * @var Notification $notification 
+     **/
     private $notification;
 
 

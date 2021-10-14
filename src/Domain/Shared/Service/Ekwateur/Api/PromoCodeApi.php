@@ -9,16 +9,20 @@ use App\Domain\Shared\Service\Ekwateur\Entity\PromoCode;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 /**
-* This API allowes to acces to promo code end point
-**/
+ * This API allowes to acces to promo code end point
+ **/
 class PromoCodeApi implements PromoCodeApiInterface
 {
     use \App\Domain\Shared\Service\Ekwateur\Api\ListTrait;
 
     public const method = "promoCodeList";
-    /** @var HttpClientInterface $clientHttp **/
+    /**
+     * @var HttpClientInterface $clientHttp 
+     **/
     private $clientHttp;
-    /** @var string $url **/
+    /**
+     * @var string $url 
+     **/
     private $url;
     public function __construct(HttpClientInterface $clientHttp, string $url)
     {
@@ -27,8 +31,8 @@ class PromoCodeApi implements PromoCodeApiInterface
     }
 
     /**
-    * @param array<mixed> $item
-    **/
+     * @param array<mixed> $item
+     **/
     public function hydrateItem($item): PromoCode
     {
         return new PromoCode(

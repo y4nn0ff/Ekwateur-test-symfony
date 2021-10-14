@@ -11,8 +11,8 @@ use App\Domain\Shared\Service\Ekwateur\Entity\PromoCodeInterface;
 trait ListTrait
 {
     /**
-    * @return \Iterator<OfferInterface|PromoCodeInterface>
-    **/
+     * @return \Iterator<OfferInterface|PromoCodeInterface>
+     **/
     public function list(EkwateurQueryBuilderInterface $query): \Iterator
     {
         $url = $this->url . self::method . '?' . implode("&", $query->getFilters());

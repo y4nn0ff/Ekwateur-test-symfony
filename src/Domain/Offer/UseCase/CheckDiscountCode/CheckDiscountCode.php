@@ -10,10 +10,10 @@ use App\Domain\Shared\Service\Ekwateur\Entity\Offer;
 use App\Domain\Shared\Service\Ekwateur\Entity\PromoCode;
 
 /**
-* This use cas check if promo code is valid.
-* Rules : if promo code isn't expired and is present into an offer, this one is valid
-* otherwise it rises an error
-**/
+ * This use cas check if promo code is valid.
+ * Rules : if promo code isn't expired and is present into an offer, this one is valid
+ * otherwise it rises an error
+ **/
 class CheckDiscountCode
 {
     /**
@@ -30,9 +30,13 @@ class CheckDiscountCode
     {
         $promoCode = null;
         $offers = [];
-        /** @var array<PromoCode> $promoCodesList  */
+        /**
+ * @var array<PromoCode> $promoCodesList  
+*/
         $promoCodesList = [];
-        /** @var array<Offer> $offersList  */
+        /**
+ * @var array<Offer> $offersList  
+*/
         $offersList = [];
         $client = $this->ekwateurService->getClient($_ENV['EKWATEUR_END_POINT']);
         //We get promocode from API

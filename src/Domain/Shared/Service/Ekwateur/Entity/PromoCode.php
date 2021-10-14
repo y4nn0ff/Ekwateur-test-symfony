@@ -6,11 +6,17 @@ namespace App\Domain\Shared\Service\Ekwateur\Entity;
 
 class PromoCode implements PromoCodeInterface
 {
-    /** @var string $code **/
+    /**
+     * @var string $code 
+     **/
     private $code;
-    /** @var float $discountValue **/
+    /**
+     * @var float $discountValue 
+     **/
     private $discountValue;
-    /** @var \DateTime $endDate **/
+    /**
+     * @var \DateTime $endDate 
+     **/
     private $endDate;
 
     public function __construct(

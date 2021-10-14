@@ -13,7 +13,7 @@ interface OfferInterface
     public function getOfferDescription(): string;
 
     /**
-    * @return array<PromoCode>
-    **/
+     * @return array<PromoCode>
+     **/
     public function getValidPromoCodeList(): array;
 }

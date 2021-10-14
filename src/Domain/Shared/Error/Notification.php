@@ -7,8 +7,8 @@ namespace App\Domain\Shared\Error;
 class Notification
 {
     /**
-    * @var array<Error> $errors
-    **/
+     * @var array<Error> $errors
+     **/
     private $errors = [];
 
     public function addError(string $fieldName, string $error, int $code = null): self

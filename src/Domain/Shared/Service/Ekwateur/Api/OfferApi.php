@@ -9,16 +9,20 @@ use App\Domain\Shared\Service\Ekwateur\Entity\Offer;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 /**
-* This API allowes to acces to offer end point
-**/
+ * This API allowes to acces to offer end point
+ **/
 class OfferApi implements OfferApiInterface
 {
     use \App\Domain\Shared\Service\Ekwateur\Api\ListTrait;
 
     public const method = "offerList";
-    /** @var HttpClientInterface $clientHttp **/
+    /**
+     * @var HttpClientInterface $clientHttp 
+     **/
     private $clientHttp;
-    /** @var string $url **/
+    /**
+     * @var string $url 
+     **/
     private $url;
     public function __construct(HttpClientInterface $clientHttp, string $url)
     {
@@ -27,8 +31,8 @@ class OfferApi implements OfferApiInterface
     }
 
     /**
-    * @param array<mixed> $item
-    **/
+     * @param array<mixed> $item
+     **/
     public function hydrateItem($item): Offer
     {
         return new Offer(

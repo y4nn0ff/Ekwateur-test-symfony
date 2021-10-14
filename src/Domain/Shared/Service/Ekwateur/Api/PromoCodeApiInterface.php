@@ -11,7 +11,7 @@ use App\Domain\Shared\Service\Ekwateur\Entity\PromoCodeInterface;
 interface PromoCodeApiInterface
 {
     /**
-    * @return \Iterator<PromoCodeInterface>
-    **/
+     * @return \Iterator<PromoCodeInterface>
+     **/
     public function list(EkwateurQueryBuilderInterface $query): \Iterator;
 }

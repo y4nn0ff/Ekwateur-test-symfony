@@ -20,3 +20,5 @@
 ###< phpunit/phpunit ###
 
 promocodes
+tools
+.php-cs-fixer.cache

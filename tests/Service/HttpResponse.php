@@ -3,43 +3,51 @@
 namespace App\Tests\Service;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
-class HttpResponse implements ResponseInterface {
+class HttpResponse implements ResponseInterface
+{
     
     /**
-    * @var Array<mixed> $content
-    **/
+     * @var Array<mixed> $content
+     **/
     public $content;
-    public function getStatusCode(): int {
+    public function getStatusCode(): int
+    {
         return 0;
     }
     
-    public function getHeaders(bool $throw = true) : array {
+    public function getHeaders(bool $throw = true) : array
+    {
         return [];
     }
     
-    public function getContent(bool $throw = true) : string {
+    public function getContent(bool $throw = true) : string
+    {
         return json_encode($this->content)?:'';
     }
     
     /**
-    * @return array<mixed>
-    **/
-    public function toArray(bool $throw = true) : array {
+     * @return array<mixed>
+     **/
+    public function toArray(bool $throw = true) : array
+    {
         return [];
     }
     
-    public function cancel() : void{
+    public function cancel() : void
+    {
         
     }
     
-    public function getInfo(?string $type = NULL) {
+    public function getInfo(?string $type = null)
+    {
         
     }
     
     /**
-    * @param array<mixed> $content
-    **/
-    public function setContent(array $content) : void{
+     * @param array<mixed> $content
+     **/
+    public function setContent(array $content) : void
+    {
         $this->content = $content;
     }
 }

@@ -11,9 +11,13 @@ use App\Domain\Shared\Logger\Logger;
 
 class CheckDiscountCodePresenter implements CheckDiscountCodePresenterInterface
 {
-    /** @var KernelInterface $kernel **/
+    /**
+     * @var KernelInterface $kernel 
+     **/
     private $kernel;
-    /** @var Logger $logger **/
+    /**
+     * @var Logger $logger 
+     **/
     private $logger;
     public function __construct(KernelInterface $kernel, Logger $logger)
     {
@@ -41,8 +45,8 @@ class CheckDiscountCodePresenter implements CheckDiscountCodePresenterInterface
 
 
     /**
-    * @return array<mixed>
-    **/
+     * @return array<mixed>
+     **/
     public function buildJsonFile(CheckDiscountCodeResponse $response): array
     {
         $json = [

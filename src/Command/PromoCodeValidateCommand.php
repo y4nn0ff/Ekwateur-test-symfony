@@ -15,8 +15,8 @@ use App\Domain\Offer\UseCase\CheckDiscountCode\CheckDiscountCodeResponse;
 use App\Domain\Offer\UseCase\CheckDiscountCode\CheckDiscountCodePresenter;
 
 /**
-* Script check promo code given on argument
-*/
+ * Script check promo code given on argument
+ */
 class PromoCodeValidateCommand extends Command
 {
     protected static $defaultName = 'promo-code:validate';
@@ -44,8 +44,7 @@ class PromoCodeValidateCommand extends Command
         CheckDiscountCodeRequest $checkdiscountCodeRequest,
         CheckDiscountCodeResponse $checkdiscountCodeResponse,
         CheckDiscountCodePresenter $checkdiscountCodePresenter
-    )
-    {
+    ) {
         parent::__construct();
         $this->checkdiscountCode = $checkdiscountCode;
         $this->checkdiscountCodeRequest = $checkdiscountCodeRequest;
@@ -56,8 +55,11 @@ class PromoCodeValidateCommand extends Command
     protected function configure(): void
     {
         $this
-            ->addArgument('promo_code', InputArgument::REQUIRED, 'The code to check')
-    ;
+            ->addArgument(
+                'promo_code',
+                InputArgument::REQUIRED,
+                'The code to check'
+            );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

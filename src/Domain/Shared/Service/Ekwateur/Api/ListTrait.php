@@ -10,7 +10,7 @@ Trait ListTrait {
     /**
     * @return \Iterator<OfferInterface|PromoCodeInterface> 
     **/
-    public function list(?EkwateurQueryBuilderInterface $query) : \Iterator {
+    public function list(EkwateurQueryBuilderInterface $query) : \Iterator {
         
         $url = $this->url . self::method . '?' . implode("&",$query->getFilters());
     

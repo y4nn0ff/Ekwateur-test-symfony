@@ -9,6 +9,6 @@ interface PromoCodeApiInterface {
     /**
     * @return \Iterator<PromoCodeInterface> 
     **/
-    public function list(?EkwateurQueryBuilderInterface $query) : \Iterator;    
+    public function list(EkwateurQueryBuilderInterface $query) : \Iterator;    
 }
 

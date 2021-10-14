@@ -18,7 +18,7 @@ class HttpResponse implements ResponseInterface {
     }
     
     public function getContent(bool $throw = true) : string {
-        return json_encode($this->content);
+        return json_encode($this->content)?:'';
     }
     
     /**

@@ -8,6 +8,6 @@ interface OfferApiInterface {
     /**
     * @return \Iterator<OfferInterface> 
     **/
-    public function list(?EkwateurQueryBuilderInterface $query) : \Iterator;
+    public function list(EkwateurQueryBuilderInterface $query) : \Iterator;
 }
 

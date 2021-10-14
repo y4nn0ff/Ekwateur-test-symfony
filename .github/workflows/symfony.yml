@@ -1,4 +1,4 @@
-name: Symfony
+name: CI test
 
 on:
   push:
@@ -42,3 +42,6 @@ jobs:
       run: |
         bin/console lint:container
         vendor/bin/phpstan analyse -c phpstan.neon
+    - name: Check PHP syntax errors
+      uses: overtrue/phplint@3.0.3
+
